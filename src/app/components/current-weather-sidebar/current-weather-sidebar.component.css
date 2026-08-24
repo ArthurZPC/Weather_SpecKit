@@ -1,31 +1,29 @@
 :host { display: block; }
-.sidebar-content { display: flex; flex-direction: column; gap: 18px; }
+.sidebar-content { display: flex; flex-direction: column; gap: 18px; position: relative; }
 .search-form { align-items: flex-start; display: flex; gap: 8px; }
 .search-field { flex: 1; min-width: 0; }
+.search-field input { padding-left: 10px; padding-right: 10px; }
 .search-form button, .search-results button { background: var(--ink); border: 0; border-radius: 4px; color: var(--surface); cursor: pointer; font: inherit; }
 .search-form button { height: 56px; padding: 0 14px; }
 .search-status { color: var(--muted); font-size: 13px; margin: -8px 0 0; }
-.search-results { list-style: none; margin: -8px 0 0; padding: 0; }
+.search-results { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 12px 24px rgba(35, 48, 61, .14); list-style: none; margin: 0; max-height: min(320px, 45vh); overflow-y: auto; padding: 6px; position: absolute; top: 64px; width: min(calc(100% - 78px), 360px); z-index: 2; }
 .search-results li + li { margin-top: 6px; }
 .search-results button { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; text-align: left; width: 100%; }
 .search-results button span { color: rgba(255, 255, 255, .72); font-size: 12px; }
-.weather-panel { background: var(--surface); border-color: var(--line); border-radius: 8px; color: var(--ink); padding: 30px 34px 34px; text-align: center; }
+.weather-panel { background: var(--surface); border-color: var(--line); border-radius: 8px; color: var(--ink); padding: 30px 34px 34px; position: relative; text-align: center; }
 .panel-header { align-items: center; display: flex; justify-content: space-between; margin-bottom: 34px; }
-.eyebrow, .representative-note { color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: 1.2px; margin: 0; }
-.representative-note { font-weight: 500; letter-spacing: 0; }
+.eyebrow { color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: 1.2px; margin: 0; }
 .weather-visual-region h1 { font-family: var(--display-font); font-size: 30px; font-weight: 500; line-height: 1.1; margin: 24px 0 0; }
-.weather-visual { border: 1px solid var(--line); border-radius: 4px; height: 176px; margin: 0 auto; object-fit: contain; width: 176px; }
+.weather-visual { border-radius: 4px; height: 176px; margin: 0 auto; object-fit: contain; width: 176px; }
 .temperature-region { margin-top: 26px; }
 .temperature { font-family: var(--display-font); font-size: 72px; font-weight: 500; line-height: .9; margin: 0; }
 .time { color: var(--muted); display: flex; font-size: 14px; gap: 10px; justify-content: center; margin: 16px 0 0; }
 .time span + span::before { content: '/'; margin-right: 10px; }
 .unavailable-message, .condition-region p, .city-name { color: var(--muted); font-size: 14px; line-height: 1.4; margin: 0; }
 .panel-divider { background: var(--line); height: 1px; margin: 32px 0 26px; }
-.condition-region, .location-region { align-items: center; display: flex; flex-direction: column; }
-.condition-icon { height: 40px; margin-bottom: 12px; object-fit: contain; width: 40px; }
-.location-region { margin-top: 28px; }
-.city-image { background: #c9d4cc; border: 1px solid var(--line); border-radius: 3px; height: 74px; overflow: hidden; width: 118px; }
-.city-image img { height: 100%; object-fit: cover; width: 100%; }
-.city-image span { background: rgba(255, 255, 255, .22); display: block; height: 100%; width: 100%; }
-.city-name { color: var(--ink); font-family: var(--display-font); font-size: 20px; margin-top: 12px; }
-@media (max-width: 600px) { .weather-panel { padding: 24px 20px 28px; } .weather-visual { height: 48vw; max-height: 176px; max-width: 176px; width: 48vw; } }
+.condition-region, .location-region { align-items: center; display: flex; }
+.condition-region { gap: 12px; justify-content: center; }
+.condition-icon { height: 40px; object-fit: contain; width: 40px; }
+.location-region { justify-content: center; margin-top: 28px; }
+.city-name { color: var(--ink); font-family: var(--display-font); font-size: 20px; }
+@media (max-width: 600px) { .search-results { left: 0; top: 64px; width: calc(100% - 78px); } .weather-panel { padding: 24px 20px 28px; } .weather-visual { height: 48vw; max-height: 176px; max-width: 176px; width: 48vw; } }

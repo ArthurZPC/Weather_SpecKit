@@ -1,1 +1,22 @@
-<section aria-labelledby="highlights-heading"><div class="section-heading"><p class="section-kicker">AT A GLANCE</p><h2 id="highlights-heading">Today's Highlights</h2></div><div class="highlights-grid">@for (metric of highlights; track metric.label) { <mat-card class="highlight-card" appearance="outlined"><div class="metric-top"><span class="metric-label">{{ metric.label }}</span><img [src]="metric.icon || '/images/weather-states/not-available.svg'" alt="" aria-hidden="true" (error)="handleImageError($event)" /></div><strong class="metric-value">{{ metric.value }}</strong><span class="metric-detail">{{ metric.detail }}</span></mat-card> }</div></section>
+<section aria-labelledby="highlights-heading">
+  <div class="section-heading">
+    <h2 id="highlights-heading">Today's Highlights</h2>
+  </div>
+  <div class="highlights-grid">
+    @for (metric of highlights; track metric.label) {
+      <mat-card class="highlight-card" appearance="outlined"
+        ><div class="metric-top">
+          <span class="metric-label">{{ metric.label }}</span
+          ><img
+            [src]="metric.icon || '/images/weather-states/not-available.svg'"
+            alt=""
+            aria-hidden="true"
+            (error)="handleImageError($event)"
+          />
+        </div>
+        <strong class="metric-value">{{ metric.value }}</strong
+        ><span class="metric-detail">{{ metric.detail }}</span></mat-card
+      >
+    }
+  </div>
+</section>

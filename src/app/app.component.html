@@ -1,8 +1,45 @@
 <main class="dashboard-shell">
-  <app-current-weather-sidebar [currentWeather]="currentWeather" [currentTime]="currentTime" [location]="location" [unit]="selectedUnit" [searchResults]="searchResults" [searching]="requestState === 'loading'" [noResults]="noResults" [errorMessage]="errorMessage" (searchQueryChange)="updateSearchQuery($event)" (searchSubmitted)="search()" (locationSelected)="selectLocation($event)" (retryRequested)="retry()" />
+  <app-current-weather-sidebar
+    [currentWeather]="currentWeather"
+    [currentTime]="currentTime"
+    [location]="location"
+    [unit]="selectedUnit"
+    [searchResults]="searchResults"
+    [searching]="requestState === 'loading'"
+    [noResults]="noResults"
+    [errorMessage]="errorMessage"
+    (searchQueryChange)="updateSearchQuery($event)"
+    (searchSubmitted)="search()"
+    (locationSelected)="selectLocation($event)"
+    (retryRequested)="retry()"
+  />
   <section class="statistics-region" aria-label="Weather statistics">
-    <header class="statistics-header"><span class="statistics-label">WEATHER STATISTICS</span><app-temperature-unit-control [selectedUnit]="selectedUnit" (selectedUnitChange)="setUnit($event)" /></header>
-    @if (requestState === 'ready') { <app-weekly-forecast [forecast]="weeklyForecast" [unit]="selectedUnit" /><app-today-highlights [highlights]="todayHighlights" /> } @else if (requestState === 'loading') { <p role="status">Loading live weather...</p> } @else { <p role="alert">{{ errorMessage }} <button type="button" (click)="retry()">Retry</button></p> }
+    <header class="statistics-header">
+      <span class="statistics-label">WEATHER STATISTICS</span
+      ><app-temperature-unit-control
+        [selectedUnit]="selectedUnit"
+        (selectedUnitChange)="setUnit($event)"
+      />
+    </header>
+    @if (requestState === "ready") {
+      <app-weekly-forecast
+        [forecast]="weeklyForecast"
+        [unit]="selectedUnit"
+      /><app-today-highlights [highlights]="todayHighlights" />
+    } @else if (requestState === "loading") {
+      <p role="status">Loading live weather...</p>
+    } @else {
+      <p role="alert">
+        {{ errorMessage }}
+        <button type="button" (click)="retry()">Retry</button>
+      </p>
+    }
   </section>
 </main>
-<footer class="dashboard-footer">Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a>. Public-service availability and rate limits are outside this application's control.</footer>
+<footer class="dashboard-footer">
+  Weather data by
+  <a href="https://open-meteo.com/" target="_blank" rel="noreferrer"
+    >Open-Meteo</a
+  >. Public-service availability and rate limits are outside this application's
+  control.
+</footer>
