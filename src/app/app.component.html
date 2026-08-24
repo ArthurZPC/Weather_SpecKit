@@ -6,8 +6,12 @@
     </header>
 
     <section class="weather-visual-region" aria-labelledby="condition-heading">
-      <div class="weather-visual" [class]="currentWeather.conditionVisual" role="img"
-        [attr.aria-label]="currentWeather.condition + ' weather visual'"></div>
+      <img class="weather-visual" 
+           [src]="resolvedIconPath" 
+           [alt]="currentWeather.condition + ' weather icon'"
+           role="img"
+           (error)="handleIconError()"
+           #primaryIcon />
       <h1 id="condition-heading">{{ currentWeather.condition }}</h1>
     </section>
 
@@ -25,7 +29,10 @@
     <div class="panel-divider" role="separator"></div>
 
     <section class="condition-region" aria-label="Condition details">
-      <div class="condition-icon" aria-hidden="true"></div>
+      <img class="condition-icon" 
+           [src]="resolvedIconPath" 
+           aria-hidden="true"
+           (error)="handleDetailIconError()" />
       <p>{{ currentWeather.conditionDescription }}</p>
     </section>
 

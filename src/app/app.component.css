@@ -49,77 +49,13 @@
 }
 
 .weather-visual {
-  background: #d5e2e7;
   border: 1px solid rgba(24, 39, 51, 0.1);
   border-radius: 4px;
   box-sizing: border-box;
   height: 176px;
   margin: 0 auto;
-  position: relative;
+  object-fit: contain;
   width: 176px;
-}
-
-.weather-visual::after, .weather-visual::before {
-  background: rgba(255, 255, 255, 0.46);
-  content: '';
-  display: block;
-  position: absolute;
-}
-
-.visual-clear { background: #e3d7ae; }
-.visual-partly-cloudy { background: #b7cbd0; }
-.visual-cloudy { background: #aeb8c1; }
-.visual-fog { background: #c7cbc7; }
-.visual-mist { background: #d0d5d0; }
-.visual-haze { background: #d8c9a8; }
-.visual-smoke { background: #aaa9a4; }
-.visual-dust { background: #cdbb9e; }
-.visual-sand { background: #d7bd88; }
-.visual-drizzle { background: #a9c3ce; }
-.visual-rain { background: #8fadc2; }
-.visual-freezing-rain { background: #b1c9d8; }
-.visual-sleet { background: #aab8c8; }
-.visual-snow { background: #dce4e5; }
-.visual-heavy-snow { background: #c4d5dc; }
-.visual-hail { background: #b4c3c7; }
-.visual-thunderstorm { background: #7e899b; }
-.visual-strong-wind { background: #b2c9be; }
-.visual-squall { background: #93b5b1; }
-.visual-tornado { background: #8c9b91; }
-.visual-volcanic-ash { background: #9b918b; }
-
-.visual-partly-cloudy::before, .visual-cloudy::before, .visual-fog::before, .visual-mist::before {
-  height: 28px;
-  left: 22px;
-  top: 76px;
-  width: 132px;
-}
-
-.visual-partly-cloudy::after {
-  background: #e3d7ae;
-  border-radius: 50%;
-  height: 48px;
-  right: 22px;
-  top: 28px;
-  width: 48px;
-}
-
-.visual-clear::after {
-  background: #fff4bb;
-  border-radius: 50%;
-  height: 72px;
-  left: 52px;
-  top: 52px;
-  width: 72px;
-}
-
-.visual-rain::after, .visual-drizzle::after, .visual-freezing-rain::after {
-  border-left: 2px solid rgba(255, 255, 255, 0.7);
-  height: 52px;
-  left: 65px;
-  top: 94px;
-  transform: rotate(20deg);
-  width: 42px;
 }
 
 .temperature-region { margin-top: 26px; }
@@ -152,7 +88,12 @@
 
 .panel-divider { background: var(--line); height: 1px; margin: 32px 0 26px; width: 100%; }
 .condition-region, .location-region { align-items: center; display: flex; flex-direction: column; }
-.condition-icon { background: var(--accent); border-radius: 50%; height: 12px; margin-bottom: 12px; width: 12px; }
+.condition-icon { 
+  height: 40px; 
+  object-fit: contain; 
+  margin-bottom: 12px; 
+  width: 40px; 
+}
 .condition-region p, .city-name { color: var(--muted); font-size: 14px; line-height: 1.4; margin: 0; }
 .location-region { margin-top: 28px; }
 .city-image { background: #c9d4cc; border: 1px solid rgba(24, 39, 51, 0.1); border-radius: 3px; height: 74px; overflow: hidden; width: 118px; }
