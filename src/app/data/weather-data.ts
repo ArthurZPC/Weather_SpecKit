@@ -9,6 +9,7 @@ import {
 } from '../models/weather.models';
 
 export const weatherStateVisuals: Record<WeatherCondition, WeatherStateVisual> = {
+  Unavailable: { description: 'Weather unavailable', visualClass: 'visual-unavailable', iconPath: '/images/weather-states/not-available.svg' },
   'Clear/Sunny': { description: 'Clear skies', visualClass: 'visual-clear', iconPath: '/images/weather-states/clear-day.svg' },
   'Partly Cloudy': { description: 'Partly cloudy skies', visualClass: 'visual-partly-cloudy', iconPath: '/images/weather-states/partly-cloudy-day.svg' },
   'Cloudy/Overcast': { description: 'Cloudy skies', visualClass: 'visual-cloudy', iconPath: '/images/weather-states/overcast-day.svg' },

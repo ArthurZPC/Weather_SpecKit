@@ -1,5 +1,8 @@
 <aside class="sidebar-content" aria-label="Current weather sidebar">
-  <mat-form-field class="search-field" appearance="outline"><mat-label>Search location</mat-label><input matInput type="search" aria-label="Search location" /></mat-form-field>
+  <form class="search-form" (submit)="$event.preventDefault(); submitSearch()"><mat-form-field class="search-field" appearance="outline"><mat-label>Search location</mat-label><input matInput type="search" aria-label="Search location" (input)="searchQueryChange.emit($any($event.target).value)" /></mat-form-field><button type="submit">Search</button></form>
+  @if (searching) { <p class="search-status" role="status">Loading weather...</p> }
+  @if (noResults) { <p class="search-status" role="status">No locations found.</p> }
+  @if (searchResults.length) { <ul class="search-results" aria-label="Location search results">@for (result of searchResults; track result.id) { <li><button type="button" (click)="locationSelected.emit(result)"><strong>{{ result.displayLabel }}</strong><span>{{ result.country }}{{ result.admin1 ? ' · ' + result.admin1 : '' }}</span></button></li> }</ul> }
   <mat-card class="weather-panel" appearance="outlined">
     <header class="panel-header"><p class="eyebrow">CURRENT WEATHER</p><p class="representative-note">Representative conditions</p></header>
     <section class="weather-visual-region" aria-labelledby="condition-heading"><img class="weather-visual" [src]="resolvedIconPath" [alt]="currentWeather.condition + ' weather icon'" (error)="handleImageError($event)" /><h1 id="condition-heading">{{ currentWeather.condition }}</h1></section>

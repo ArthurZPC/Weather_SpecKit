@@ -4,5 +4,7 @@
 .statistics-region { display: flex; flex-direction: column; gap: 38px; min-width: 0; padding-top: 2px; }
 .statistics-header { align-items: center; display: flex; justify-content: space-between; }
 .statistics-label { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; }
+.dashboard-footer { color: var(--muted); font-size: 12px; margin: 0 auto; max-width: 1200px; padding: 0 40px 28px; }
+.dashboard-footer a { color: var(--ink); }
 
-@media (max-width: 800px) { .dashboard-shell { grid-template-columns: 1fr; max-width: 600px; padding: 24px 16px 40px; } .statistics-region { gap: 30px; } }
+@media (max-width: 800px) { .dashboard-shell { grid-template-columns: 1fr; max-width: 600px; padding: 24px 16px 40px; } .statistics-region { gap: 30px; } .dashboard-footer { padding: 0 16px 24px; } }
