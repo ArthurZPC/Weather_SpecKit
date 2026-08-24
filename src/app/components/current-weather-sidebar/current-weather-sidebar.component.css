@@ -1,6 +1,14 @@
 :host { display: block; }
 .sidebar-content { display: flex; flex-direction: column; gap: 18px; }
-.search-field { width: 100%; }
+.search-form { align-items: flex-start; display: flex; gap: 8px; }
+.search-field { flex: 1; min-width: 0; }
+.search-form button, .search-results button { background: var(--ink); border: 0; border-radius: 4px; color: var(--surface); cursor: pointer; font: inherit; }
+.search-form button { height: 56px; padding: 0 14px; }
+.search-status { color: var(--muted); font-size: 13px; margin: -8px 0 0; }
+.search-results { list-style: none; margin: -8px 0 0; padding: 0; }
+.search-results li + li { margin-top: 6px; }
+.search-results button { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; text-align: left; width: 100%; }
+.search-results button span { color: rgba(255, 255, 255, .72); font-size: 12px; }
 .weather-panel { background: var(--surface); border-color: var(--line); border-radius: 8px; color: var(--ink); padding: 30px 34px 34px; text-align: center; }
 .panel-header { align-items: center; display: flex; justify-content: space-between; margin-bottom: 34px; }
 .eyebrow, .representative-note { color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: 1.2px; margin: 0; }

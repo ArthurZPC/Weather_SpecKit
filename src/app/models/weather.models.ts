@@ -1,4 +1,5 @@
 export type WeatherCondition =
+  | 'Unavailable'
   | 'Clear/Sunny'
   | 'Partly Cloudy'
   | 'Cloudy/Overcast'
@@ -40,6 +41,11 @@ export interface CurrentWeather {
 export interface LocationCity {
   cityName: string;
   cityImage: string | null;
+  country?: string;
+  admin1?: string | null;
+  latitude?: number;
+  longitude?: number;
+  timezone?: string | null;
 }
 
 export interface CurrentTimeContext {
@@ -48,6 +54,7 @@ export interface CurrentTimeContext {
 }
 
 export interface WeeklyForecastEntry {
+  date?: string;
   weekdayShort: string;
   condition: WeatherCondition;
   highCelsius: number;
@@ -59,4 +66,20 @@ export interface HighlightMetric {
   value: string | number;
   detail?: string;
   icon?: string;
+}
+
+export interface LocationSearchResult extends LocationCity {
+  id: number;
+  displayLabel: string;
+  latitude: number;
+  longitude: number;
+}
+
+export type WeatherRequestState = 'loading' | 'ready' | 'error';
+
+export interface LiveWeatherSnapshot {
+  currentWeather: CurrentWeather;
+  currentTime: CurrentTimeContext;
+  weeklyForecast: WeeklyForecastEntry[];
+  todayHighlights: HighlightMetric[];
 }
