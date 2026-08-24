@@ -1,0 +1,13 @@
+<aside class="sidebar-content" aria-label="Current weather sidebar">
+  <mat-form-field class="search-field" appearance="outline"><mat-label>Search location</mat-label><input matInput type="search" aria-label="Search location" /></mat-form-field>
+  <mat-card class="weather-panel" appearance="outlined">
+    <header class="panel-header"><p class="eyebrow">CURRENT WEATHER</p><p class="representative-note">Representative conditions</p></header>
+    <section class="weather-visual-region" aria-labelledby="condition-heading"><img class="weather-visual" [src]="resolvedIconPath" [alt]="currentWeather.condition + ' weather icon'" (error)="handleImageError($event)" /><h1 id="condition-heading">{{ currentWeather.condition }}</h1></section>
+    <section class="temperature-region" aria-label="Current temperature and time">
+      @if (currentWeather.available) { <p class="temperature">{{ temperature }}</p><p class="time"><span>{{ currentTime.weekday }}</span><span>{{ currentTime.hour }}</span></p> } @else { <p class="unavailable-message">{{ unavailableMessage }}</p> }
+    </section>
+    <div class="panel-divider" role="separator"></div>
+    <section class="condition-region" aria-label="Condition details"><img class="condition-icon" [src]="conditionVisual.iconPath" [alt]="conditionVisual.description" (error)="handleImageError($event)" /><p>{{ currentWeather.conditionDescription }}</p></section>
+    <section class="location-region" aria-label="Location"><div class="city-image" role="img" [attr.aria-label]="location.cityName + ' representative image'">@if (location.cityImage) { <img [src]="location.cityImage" [alt]="location.cityName" (error)="handleImageError($event)" /> } @else { <span aria-hidden="true"></span> }</div><p class="city-name">{{ location.cityName }}</p></section>
+  </mat-card>
+</aside>

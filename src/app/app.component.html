@@ -1,50 +1,8 @@
-<main class="page-shell">
-  <mat-card class="weather-panel" appearance="outlined">
-    <header class="panel-header">
-      <p class="eyebrow">CURRENT WEATHER</p>
-      <p class="representative-note">Representative conditions</p>
-    </header>
-
-    <section class="weather-visual-region" aria-labelledby="condition-heading">
-      <img class="weather-visual" 
-           [src]="resolvedIconPath" 
-           [alt]="currentWeather.condition + ' weather icon'"
-           role="img"
-           (error)="handleIconError()"
-           #primaryIcon />
-      <h1 id="condition-heading">{{ currentWeather.condition }}</h1>
-    </section>
-
-    <section class="temperature-region" aria-label="Current temperature and time">
-      @if (currentWeather.available) {
-        <p class="temperature">
-          <span>{{ currentWeather.temperature }}</span><sup>{{ currentWeather.temperatureUnit }}</sup>
-        </p>
-        <p class="time"><span>{{ currentTime.weekday }}</span><span>{{ currentTime.hour }}</span></p>
-      } @else {
-        <p class="unavailable-message">{{ unavailableMessage }}</p>
-      }
-    </section>
-
-    <div class="panel-divider" role="separator"></div>
-
-    <section class="condition-region" aria-label="Condition details">
-      <img class="condition-icon" 
-           [src]="resolvedIconPath" 
-           aria-hidden="true"
-           (error)="handleDetailIconError()" />
-      <p>{{ currentWeather.conditionDescription }}</p>
-    </section>
-
-    <section class="location-region" aria-label="Location">
-      <div class="city-image" role="img" aria-label="Representative city image">
-        @if (location.cityImage) {
-          <img [src]="location.cityImage" [alt]="location.cityName" />
-        } @else {
-          <span aria-hidden="true"></span>
-        }
-      </div>
-      <p class="city-name">{{ location.cityName }}</p>
-    </section>
-  </mat-card>
+<main class="dashboard-shell">
+  <app-current-weather-sidebar [currentWeather]="currentWeather" [currentTime]="currentTime" [location]="location" [unit]="selectedUnit" />
+  <section class="statistics-region" aria-label="Weather statistics">
+    <header class="statistics-header"><span class="statistics-label">WEATHER STATISTICS</span><app-temperature-unit-control [selectedUnit]="selectedUnit" (selectedUnitChange)="setUnit($event)" /></header>
+    <app-weekly-forecast [forecast]="weeklyForecast" [unit]="selectedUnit" />
+    <app-today-highlights [highlights]="todayHighlights" />
+  </section>
 </main>
