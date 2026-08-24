@@ -1,0 +1,13 @@
+:host { display: block; }
+.section-heading { align-items: baseline; display: flex; gap: 12px; margin-bottom: 16px; }
+.section-kicker { color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; margin: 0; }
+h2 { font-family: var(--display-font); font-size: 24px; font-weight: 600; margin: 0; }
+.highlights-grid { display: grid; gap: 12px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.highlight-card { background: var(--surface); border-color: var(--line); border-radius: 6px; min-height: 142px; padding: 18px; }
+.metric-top { align-items: center; display: flex; justify-content: space-between; }
+.metric-label { color: var(--muted); font-size: 13px; font-weight: 600; }
+.metric-top img { height: 28px; object-fit: contain; width: 28px; }
+.metric-value { display: block; font-family: var(--display-font); font-size: 26px; font-weight: 600; margin-top: 20px; overflow-wrap: anywhere; }
+.metric-detail { color: var(--muted); display: block; font-size: 12px; margin-top: 8px; overflow-wrap: anywhere; }
+@media (max-width: 600px) { .highlights-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 360px) { .highlights-grid { grid-template-columns: 1fr; } }
